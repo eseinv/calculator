@@ -94,3 +94,10 @@ body {
 .btn-num:hover {
   cursor: pointer;
 }
+
+.btn-clear::selection,
+.btn-num::selection,
+.btn-math::selection,
+.screen::selection {
+  background: transparent;
+}
