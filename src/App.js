@@ -28,25 +28,25 @@ class Calculator extends React.Component {
   handleEqualClick = () => {
     if (this.state.operation === "mul") {
       return this.setState({
-        screen: this.state.buffer * parseInt(this.state.screen),
+        screen: (this.state.buffer * parseInt(this.state.screen)).toString(),
         operation: "",
         buffer: 0
       });
     } else if (this.state.operation === "div") {
       return this.setState({
-        screen: this.state.buffer / parseInt(this.state.screen),
+        screen: (this.state.buffer / parseInt(this.state.screen)).toString(),
         operation: "",
         buffer: 0
       });
     } else if (this.state.operation === "sub") {
       return this.setState({
-        screen: this.state.buffer - parseInt(this.state.screen),
+        screen: (this.state.buffer - parseInt(this.state.screen)).toString(),
         operation: "",
         buffer: 0
       });
     } else if (this.state.operation === "add") {
       return this.setState({
-        screen: this.state.buffer + parseInt(this.state.screen),
+        screen: (this.state.buffer + parseInt(this.state.screen)).toString(),
         operation: "",
         buffer: 0
       });
@@ -60,7 +60,11 @@ class Calculator extends React.Component {
     console.log("---------------------");
     return (
       <div className="calc-container">
-        <div className="calc-screen">
+        <div
+          className={`calc-screen ${
+            this.state.screen.length > 13 ? "small" : null
+          }`}
+        >
           <CalcScreen screen={this.state.screen} />
         </div>
         <div className="calc-buttons">
